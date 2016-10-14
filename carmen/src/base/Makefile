@@ -1,18 +1,26 @@
 include ../Makefile.conf
 
-##SUBDIRS = pioneerlib rflexlib scoutlib xr4000_base segway_base orcbotlibv4 orcbotlib
-
-SUBDIRS = 
-
-for robs in $(ROBOT_TYPES); do 	\
-	ifeq ($$robs,pioneer) 	SUBDIRS += pioneerlib ; endif ; \
-	ifeq ($$robs,rflex)    	SUBDIRS += rflexlib ; endif ; \
-	ifeq ($$robs,scout) 	SUBDIRS += scoutlib ; endif ; \
-	ifeq ($$robs,xr4000) 	SUBDIRS += xr4000_base ; endif ; \
-	ifeq ($$robs,seqway) 	SUBDIRS += segway_base ; endif ; \
-	ifeq ($$robs,orc4) 	SUBDIRS += orcbotlibv4 ; endif ; \
-	ifeq ($$robs,orc5) 	SUBDIRS += orcbotlib ; 	endif ; \
-done
+ifeq ($(ROBOT_TYPES),pioneer)
+	SUBDIRS += pioneerlib
+endif
+ifeq ($(ROBOT_TYPES),rflex)
+	SUBDIRS += rflexlib
+endif
+ifeq ($(ROBOT_TYPES),scout)
+	SUBDIRS += scoutlib
+endif
+ifeq ($(ROBOT_TYPES),xr4000)
+	SUBDIRS += xr4000_base
+endif
+ifeq ($(ROBOT_TYPES),seqway)
+	SUBDIRS += segway_base
+endif
+ifeq ($(ROBOT_TYPES),orc4)
+	SUBDIRS += orcbotlibv4
+endif
+ifeq ($(ROBOT_TYPES),orc5)
+	SUBDIRS += orcbotlib
+endif
 
 CFLAGS += 
 IFLAGS += -I../robot -I../laser

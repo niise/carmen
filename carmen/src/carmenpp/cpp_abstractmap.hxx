@@ -164,7 +164,7 @@ carmen_inline int AbstractMap<CELL>::getMapSizeY() const {
 template<class CELL>
 carmen_inline IntPoint AbstractMap<CELL>::minInside(const IntPoint& p) const {
   
-  return  IntPoint( (p.x<0)?:p.x , 
+  return  IntPoint( (p.x<0)?1:p.x ,
 		    (p.y<0)?0:p.y );
 }
 

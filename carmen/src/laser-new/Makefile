@@ -30,7 +30,7 @@ ifndef NO_LIBJPEG
 CFLAGS +=
 IFLAGS += `$(GTK_CONFIG) --cflags` 
 LFLAGS += -lparam_interface -lipc -lglobal -lglobal_graphics  \
-	`$(GTK_CONFIG) --libs` -lmap_graphics -ljpeg
+	`$(GTK_CONFIG) --libs` -lmap_graphics -ljpeg -lX11 -lXext
 SOURCES += laserview.c
 PUBLIC_BINARIES += laserview
 TARGETS += laserview

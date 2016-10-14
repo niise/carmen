@@ -31,7 +31,7 @@ endif
 
 ifndef NO_GRAPHICS
 IFLAGS += `$(GTK_CONFIG) --cflags` 
-LFLAGS += -lmap_graphics -lglobal_graphics `pkg-config --libs gtk+-2.0`
+LFLAGS += -lmap_graphics -lglobal_graphics `pkg-config --libs gtk+-2.0` -lX11
 
 ifndef NO_LIBART
 LFLAGS += -lart_lgpl -lartwrap
