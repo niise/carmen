@@ -126,7 +126,6 @@ map_update_interface_handler(MSG_INSTANCE msgRef, BYTE_ARRAY callData,
   int i;
 
 #ifndef NO_ZLIB
-  int uncompress_return;
   int uncompress_size;
   uLongf uncompress_size_result;
 #endif
@@ -166,7 +165,7 @@ map_update_interface_handler(MSG_INSTANCE msgRef, BYTE_ARRAY callData,
       uncompress_size = new_map->config.x_size*new_map->config.y_size*
 	sizeof(float);
       uncompress_size_result = uncompress_size;
-      uncompress_return = uncompress((void *)new_map->complete_map,   
+      uncompress((void *)new_map->complete_map,
 				     &uncompress_size_result,
 				     (void *)map_msg.map, 
 				     map_msg.size);
@@ -452,7 +451,6 @@ carmen_map_get_gridmap_by_name(char *name, carmen_map_p client_map)
   unsigned int timeout = 10000;
   int i;
 #ifndef NO_ZLIB
-  int uncompress_return;
   int uncompress_size;
   uLongf uncompress_size_result;
 #endif
@@ -512,8 +510,7 @@ carmen_map_get_gridmap_by_name(char *name, carmen_map_p client_map)
 	  uncompress_size = client_map->config.x_size*
 	    client_map->config.y_size*sizeof(float);
 	  uncompress_size_result = uncompress_size;
-	  uncompress_return = uncompress
-	    ((void *)client_map->complete_map,   
+	  uncompress((void *)client_map->complete_map,
 	     &uncompress_size_result,
 	     (void *)response->map, response->size);
 	} 

@@ -297,7 +297,6 @@ int carmen_localize_get_map(int global, carmen_map_t *map)
   int index;
 
 #ifndef NO_ZLIB
-  int uncompress_return;
   int uncompress_size;
   uLongf uncompress_size_result;
   unsigned char *uncompressed_data;
@@ -332,7 +331,7 @@ int carmen_localize_get_map(int global, carmen_map_t *map)
 	calloc(uncompress_size, sizeof(float));
       carmen_test_alloc(uncompressed_data);
       uncompress_size_result = uncompress_size*sizeof(float);
-      uncompress_return = uncompress((void *)uncompressed_data,   
+      uncompress((void *)uncompressed_data,
 				     &uncompress_size_result,
 				     (void *)response->data, 
 				     response->size);
