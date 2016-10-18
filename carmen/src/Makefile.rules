@@ -356,7 +356,7 @@ tar-clean:
 
 %:	
 	$(ECHO) "    ---- Linking $^ to $@ ("$(LINK)")"
-	$(SILENT) $(LINK) $(CFLAGS) $(IFLAGS) $(filter %.o, $^) $(filter %.a, $^) -o $@ -L. $(patsubst lib%.a,-l%,$(filter %.a, $^)) $(LFLAGS) $(LFLAGS_POST)
+	$(SILENT) $(LINK) $(CFLAGS) $(IFLAGS) $(filter %.o, $^) $(filter %.a, $^) -o $@ -L. $(patsubst lib%.a,-l%,$(filter %.a, $^)) $(LFLAGS) -lm -lX11 -lXext $(LFLAGS_POST)
 
 
 ifeq (Makefile.depend, $(wildcard Makefile.depend))

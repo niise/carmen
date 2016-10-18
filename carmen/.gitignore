@@ -1,3 +1,7 @@
+*.class
+*.o
+*.a
+*.depend
 bin
 include
 man
