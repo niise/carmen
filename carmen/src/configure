@@ -535,9 +535,10 @@ These are the robot types CARMEN currently supports:
 6. Scout
 7. OrcBoard v.4 
 8. OrcBoard v.5 (Experimental)
+9. roomba
 EOF
 
-  my $max = 9;
+  my $max = 10;
   my ($allow_xr4000);
 
   if ($os_type eq "linux" and $kernel eq $xr4000Kernel) {
@@ -571,6 +572,7 @@ EOF
     my (@robots) = ("rflex", "pioneer", "scout", "orc4", "orc5");
     push @robots, "xr4000" if ($allow_xr4000);
     push @robots, "segway" if ($allow_segway);
+    push @robots, "roomba";
     return @robots;
   } elsif ($type_string eq "none") {
     print "Very well, not compiling base support for any base types.\n";
@@ -613,7 +615,12 @@ EOF
       if ((grep {/segway/} @types) == 0) {
 	push @types, "segway";
       }
-    } 
+    }
+    elsif ($_ eq "9") {
+      if ((grep {/roomba/} @types) == 0) {
+        push @types, "roomba";
+      }
+    }
     else {
       print "Unrecognized number: $_. Skipping...\n";
     }

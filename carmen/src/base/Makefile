@@ -21,6 +21,9 @@ endif
 ifeq ($(ROBOT_TYPES),orc5)
 	SUBDIRS += orcbotlib
 endif
+ifeq ($(ROBOT_TYPES),roomba)
+	SUBDIRS += roombalib
+endif
 
 CFLAGS += 
 IFLAGS += -I../robot -I../laser
@@ -71,6 +74,8 @@ orc5_arm: arm_main.o orcbotlib/orclib_v5/liborc.a orcbotlib/liborcbot.a
 
 rflex: base_main.o rflexlib/librflex.a
 
+roomba: base_main.o roombalib/libroomba.a
+
 segway: 
 	$(MAKE) -C segway_base
 
@@ -98,5 +103,8 @@ orcbotlib/liborcbot.a:
 
 rflexlib/librflex.a: 
 	$(MAKE) -C rflexlib
+
+roombalib/libroomba.a:
+	$(MAKE) -C roombalib
 
 include ../Makefile.rules
