@@ -17,12 +17,14 @@ MODULE_NAME = ROBOTGUI
 MODULE_COMMENT = Module for displaying output of robot, lasers and sonars and odometry
 
 ifndef NO_GRAPHICS
-SOURCES = robotgui.c keyctrl.c
-PUBLIC_BINARIES = robotgui
-TARGETS = robotgui
+SOURCES = robotgui.c robotctrl.c keyctrl.c 
+PUBLIC_BINARIES = robotgui robotctrl
+TARGETS = robotgui robotctrl
 endif
 
 robotgui: robotgui.o keyctrl.o
+
+robotctrl: robotctrl.o keyctrl.o
 
 # rules
 
